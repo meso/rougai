@@ -5,7 +5,6 @@
 
 var express = require('express')
   , routes = require('./routes')
-//  , result = require('./routes/result')
   , http = require('http')
   , path = require('path')
   , auth = require("./auth")
@@ -13,14 +12,14 @@ var express = require('express')
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.npm_package_config_PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.cookieParser('SECRET_KEY'));
+app.use(express.cookieParser(process.env.npm_package_config_SECRET || "SECRET"));
 app.use(express.session());
 app.use(auth.passport.initialize());
 app.use(auth.passport.session());
