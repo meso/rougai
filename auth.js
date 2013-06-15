@@ -2,9 +2,9 @@ var passport = require('passport')
   , TwitterStrategy = require('passport-twitter').Strategy;
 
 passport.use(new TwitterStrategy({
-    consumerKey: "CONSUMER_KEY",
-    consumerSecret: "CONSUMER_SECRET",
-    callbackURL: "http://localhost:3000/auth/twitter/callback"
+    consumerKey: process.env.npm_package_config_CONSUMER_KEY,
+    consumerSecret: process.env.npm_package_config_CONSUMER_SECRET,
+    callbackURL: process.env.npm_package_config_CALLBACK || "http://localhost:3000/auth/twitter/callback"
   },
   function(token, tokenSecret, profile, done) {
     process.nextTick(function() {
