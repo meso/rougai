@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  p
+    a(href="/") Topへ
+  h1 @#{id}さん、あなたは老害です。自覚しましょう。
+  
+  a(href="https://twitter.com/share",class="twitter-share-button",data-url="http://rougai.mesolabs.com/", data-text="老害チェッカーでチェックした結果、老害でした", data-lang="ja", data-hashtags="24contest")ツイート
+  
+  script
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
